@@ -1,13 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using EarthlyRemediesClient.Models;
+
 
 
 namespace EarthlyRemediesClient.Models
 {
-  public class Remedy : IValidatableObject
+  public class Remedy 
   {
 
     public int RemedyId { get; set; }
@@ -24,26 +27,28 @@ namespace EarthlyRemediesClient.Models
     public string Ingredients { get; set; }
     public int UserId { get; set; }
 
-    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-    {
-      if (!EnvironmentVariables.Categories.Contains(Category))
-      {
-        yield return new ValidationResult(
-            $"Category is not contained in Categories",
-            new[] { "Category" });
-      }
-    }
-
     public static List<Remedy> GetRemedies()
     {
       var apiCallTask = ApiHelper.GetAllRemedies();
       var result = apiCallTask.Result;
 
-      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
       List<Remedy> remedyList = JsonConvert.DeserializeObject<List<Remedy>>(jsonResponse.ToString());
 
       return remedyList;
     }
+    
+    public static Remedy GetDetails(int id)
+    {
+      var apiCallTask = ApiHelper.GetRemedy(id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Remedy remedy = JsonConvert.DeserializeObject<Remedy>(jsonResponse.ToString());
+
+      return remedy;
+    }
+
   }
 
 }

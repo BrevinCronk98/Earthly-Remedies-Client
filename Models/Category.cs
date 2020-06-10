@@ -1,24 +1,18 @@
 using System.Collections.Generic;
-using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using EarthlyRemediesClient.Models;
+
 
 namespace EarthlyRemediesClient.Models
 {
-    public static class EnvironmentVariables
+    public class Category
     {
-        public static List<string> Categories = new List<string> { "GI", "respiratory", "skin", "eyes", "hair", "musculoskeletal", "endocrine", "chakra", "pineal", "lymphatic", "cardiovascular", "digestive", "nervous", "reproductive" };
-
-        // public static List<EnvironmentVariables> GetVariables(string apiKey)
-        // {
-        //   var apiCallTask = ApiHelper.ApiCall(apiKey);
-        //   var result = apiCallTask.Result;
-
-        //   JObject jsonResponse = JsonConvert.DeserializedObject<JObject>(result);
-        //   List<EnvironmentVariables> variableList = JsonConvert.DeserializedObject<List<EnvironmentVariables>>(jsonResponse["results"].ToString());
-
-        //   return variableList;
-        // }
-
+        public Category()
+        {
+            this.Remedies = new HashSet<CategoryRemedy>();
+        }
+        public int CategoryId { get; set;}
+        public int Name { get; set; }
+        public ICollection<CategoryRemedy> Remedies { get; set;}
+        
     }
 }

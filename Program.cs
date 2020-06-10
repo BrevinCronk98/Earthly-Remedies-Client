@@ -25,3 +25,4 @@ namespace EarthlyRemediesClient
         .UseUrls("http://localhost:5001/");
     }
 }
+
