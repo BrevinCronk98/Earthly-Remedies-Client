@@ -23,6 +23,22 @@ namespace EarhtlyRemediesClient.Controllers
             return View(remedy);
         
         }
+
+        public IActionResult Edit(int id)
+        {
+            var remedy = Remedy.GetDetails(id);
+            return View(remedy);
+        }
+
+        
+
+        [HttpPost]
+        public IActionResult Details(int id, Remedy remedy)
+        {
+            remedy.RemedyId = id;
+            Remedy.Put(remedy);
+            return RedirectToAction("Details", id);
+        }
     }
         
 }

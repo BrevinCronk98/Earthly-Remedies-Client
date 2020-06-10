@@ -49,6 +49,17 @@ namespace EarthlyRemediesClient.Models
       return remedy;
     }
 
+    public static void Put(Remedy remedy)
+    {
+      string jsonRemedy = JsonConvert.SerializeObject(remedy);
+      var apiCallTask = ApiHelper.Put(remedy.RemedyId, jsonRemedy);   
+    }
+
+    public static void Post(Remedy remedy)
+    {
+      string jsonRemedy = JsonConvert.SerializeObject(remedy);
+      var apiCallTask = ApiHelper.Post(jsonRemedy);
+    }
   }
 
 }

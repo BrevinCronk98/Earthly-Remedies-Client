@@ -34,3 +34,4 @@ C:\Users\cronk\desktop\EarthlyRemediesClient\obj\Debug\netcoreapp2.2\EarthlyReme
 C:\Users\cronk\desktop\EarthlyRemediesClient\obj\Debug\netcoreapp2.2\EarthlyRemediesClient.genruntimeconfig.cache
 C:\Users\cronk\desktop\EarthlyRemediesClient\obj\Debug\netcoreapp2.2\EarthlyRemediesClient.csproj.CopyComplete
 C:\Users\cronk\desktop\EarthlyRemediesClient\obj\Debug\netcoreapp2.2\Razor\Views\Remedies\Details.cshtml.g.cs
+C:\Users\cronk\desktop\EarthlyRemediesClient\obj\Debug\netcoreapp2.2\Razor\Views\Remedies\Edit.cshtml.g.cs
