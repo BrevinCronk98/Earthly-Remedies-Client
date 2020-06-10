@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>All Remedies:</h1>
+
+<ol>
+@foreach (Remedy remedy in Model)
+{
+    <ul>
+        <li>ID: @remedy.RemedyId</li>
+        <li>Name: @remedy.Name</li>
+        <li>Details: @remedy.Details</li>
+        <li>Ailment: @remedy.Ailment</li>
+        <li>Category: @remedy.Category</li>
+        <li>Ingredients: @remedy.Ingredients</li>
+    </ul>
+    <a href="/Remedies/Details/@(remedy.RemedyId)"><p>View Details</p></a>
+    <br>
+}
+</ol>
