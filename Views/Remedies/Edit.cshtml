@@ -5,7 +5,7 @@
 
 <h1> Edit Remedy</h1>
 
-<form action="/remedies/Details/@(Model.RemedyId)" method="post">
+<form action="/remedies/Details/@(Model.RemedyId)" method="put">
     <label for="name"> Remedy Name</label>
     <input id="name" name="name" type="text" value="@(Model.Name)">
     <label for="details"> Remedy Details</label>
